@@ -18,7 +18,7 @@ DevTools API is a collection of small, useful endpoints for everyday developer t
 Clone the repository and set up a virtual environment:
 
 ```bash
-git clone https://github.com/your-username/devtools-api
+git clone https://github.com/gabuuu-dev/DevTools-Api.git
 cd devtools-api
 python -m venv venv
 source venv/bin/activate        # On Windows: venv\Scripts\activate
