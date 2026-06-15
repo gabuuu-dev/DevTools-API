@@ -1,0 +1,35 @@
+name: Tests
+
+# This workflow runs every time someone pushes to "main"
+# or opens a pull request targeting "main"
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    # GitHub runs this job on a fresh Ubuntu machine
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: download a copy of your repository onto that machine
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      # Step 2: install Python on that machine
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Step 3: install everything the project needs to run and to be tested
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
+
+      # Step 4: run the test suite
+      - name: Run tests
+        run: pytest
